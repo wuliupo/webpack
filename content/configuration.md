@@ -1,5 +1,7 @@
 # 配置文件
 
+- <http://webpack.github.io/docs/configuration.html>
+
 Webpack 在执行的时候，除了在命令行传入参数，还可以通过指定的配置文件来执行。默认情况下，会搜索当前目录的 `webpack.config.js` 文件，这个文件是一个 node.js 模块，返回一个 json 格式的配置信息对象，或者通过 `--config` 选项来指定配置文件。
 
 继续我们的案例，在根目录创建 `package.json` 来添加 webpack 需要的依赖：
@@ -40,10 +42,10 @@ sudo chmod  775 package.json
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './entry.js',
+  entry: './entry.js',    // 三种方式定义入口：字符串，对象，数组
   output: {
     path: __dirname,
-    filename: 'bundle.js'
+    filename: 'bundle.js'   // 支持通配符：[id] [name] [hash] [chunkhash]
   },
   module: {
     loaders: [
